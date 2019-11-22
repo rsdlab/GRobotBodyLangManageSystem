@@ -1,0 +1,54 @@
+# GRobotBodyLangManageSystem CMake config file
+#
+# This file sets the following variables:
+# GRobotBodyLangManageSystem_FOUND - Always TRUE.
+# GRobotBodyLangManageSystem_INCLUDE_DIRS - Directories containing the GRobotBodyLangManageSystem include files.
+# GRobotBodyLangManageSystem_IDL_DIRS - Directories containing the GRobotBodyLangManageSystem IDL files.
+# GRobotBodyLangManageSystem_LIBRARIES - Libraries needed to use GRobotBodyLangManageSystem.
+# GRobotBodyLangManageSystem_DEFINITIONS - Compiler flags for GRobotBodyLangManageSystem.
+# GRobotBodyLangManageSystem_VERSION - The version of GRobotBodyLangManageSystem found.
+# GRobotBodyLangManageSystem_VERSION_MAJOR - The major version of GRobotBodyLangManageSystem found.
+# GRobotBodyLangManageSystem_VERSION_MINOR - The minor version of GRobotBodyLangManageSystem found.
+# GRobotBodyLangManageSystem_VERSION_REVISION - The revision version of GRobotBodyLangManageSystem found.
+# GRobotBodyLangManageSystem_VERSION_CANDIDATE - The candidate version of GRobotBodyLangManageSystem found.
+
+message(STATUS "Found GRobotBodyLangManageSystem-@PROJECT_VERSION@")
+set(GRobotBodyLangManageSystem_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(GRobotBodyLangManageSystem_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(GRobotBodyLangManageSystem_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(GRobotBodyLangManageSystem_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(GRobotBodyLangManageSystem_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(GRobotBodyLangManageSystem_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(GRobotBodyLangManageSystem_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(GRobotBodyLangManageSystem_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(GRobotBodyLangManageSystem_VERSION @PROJECT_VERSION@)
+set(GRobotBodyLangManageSystem_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(GRobotBodyLangManageSystem_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(GRobotBodyLangManageSystem_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(GRobotBodyLangManageSystem_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+
